@@ -692,11 +692,4 @@ MIT License - See LICENSE file for details
 
 This smart contract implementation is provided "as is" without warranty of any kind. The authors are not responsible for any losses or damages resulting from the use of this code. Always conduct thorough testing and professional audits before deploying to production.
 
----
 
-**Implementation Date**: 2025-11-11
-**Version**: 1.0.0
-**Status**: ✅ Requirements Met | ⚠️ Audit Required
-**Compliance**: ERC-3643 T-REX Protocol
-
-\
