@@ -22,9 +22,9 @@ module.exports = {
     },
 
     // Hyperledger Besu - Local Development Node
-    besuLocal: {
-      url: process.env.BESU_RPC_URL || "http://127.0.0.1:8545",
-      chainId: parseInt(process.env.BESU_CHAIN_ID) || 1337,
+    fjordLocal: {
+      url: process.env.FJORD_RPC_URL || "http://127.0.0.1:8545",
+      chainId: parseInt(process.env.FJORD_CHAIN_ID) || 1337,
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       gas: "auto",
       gasPrice: "auto",
@@ -32,39 +32,15 @@ module.exports = {
     },
 
     // Hyperledger Besu - Private Network (IBFT 2.0 / QBFT)
-    besuPrivate: {
-      url: process.env.BESU_PRIVATE_RPC_URL || "http://127.0.0.1:8545",
-      chainId: parseInt(process.env.BESU_PRIVATE_CHAIN_ID) || 2024,
+    fjordPrivate: {
+      url: process.env.FJORD_PRIVATE_RPC_URL || "http://127.0.0.1:8545",
+      chainId: parseInt(process.env.FJORD_PRIVATE_CHAIN_ID) || 2024,
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       gas: "auto",
       gasPrice: 0,  // Private chains often have zero gas price
       timeout: 120000,  // 2 minutes for consensus
     },
-
-    // Hyperledger Besu - Production Private Network
-    besuProduction: {
-      url: process.env.BESU_PROD_RPC_URL || "",
-      chainId: parseInt(process.env.BESU_PROD_CHAIN_ID) || 0,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
-      gas: "auto",
-      gasPrice: "auto",
-      timeout: 120000,
-    },
-
-    // Public Ethereum networks (for reference/testing)
-    sepolia: {
-      url: process.env.SEPOLIA_RPC_URL || "",
-      chainId: 11155111,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : []
-    },
-
-    mainnet: {
-      url: process.env.MAINNET_RPC_URL || "",
-      chainId: 1,
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : []
-    }
   },
-
   // Mocha test configuration
   mocha: {
     timeout: 120000  // 2 minutes for Besu consensus in tests

@@ -4,13 +4,13 @@
 ![Solidity](https://img.shields.io/badge/Solidity-0.8.20-blue)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Requirements](https://img.shields.io/badge/Requirements-100%25%20Met-brightgreen)
-![Hyperledger Besu](https://img.shields.io/badge/Hyperledger%20Besu-Compatible-blue)
+![Fjord Chain](https://img.shields.io/badge/Fjord%20Chain-Compatible-blue)
 
 A complete **ERC-3643 T-REX protocol** implementation for tokenizing Real World Assets (RWA) with full regulatory compliance support.
 
-**✅ VERIFIED**: All smart contract requirements from Fjord Development Scope are **100% implemented**. See [REQUIREMENTS_VERIFICATION.md](REQUIREMENTS_VERIFICATION.md) for detailed analysis.
+**✅ VERIFIED**: All smart contract requirements from the Fjord development scope are **implemented in this repository**.
 
-**🚀 HYPERLEDGER BESU READY**: Fully compatible with Hyperledger Besu private chains. See [BESU_DEPLOYMENT_GUIDE.md](BESU_DEPLOYMENT_GUIDE.md) for deployment instructions and [BESU_COMPATIBILITY.md](BESU_COMPATIBILITY.md) for compatibility verification.
+**🚀 FJORD CHAIN READY**: Fully compatible with Fjord chain private networks.
 
 **⚠️ IMPORTANT**: This is a reference implementation for development. A professional security audit and legal review are **REQUIRED** before production deployment.
 
@@ -20,7 +20,7 @@ A complete **ERC-3643 T-REX protocol** implementation for tokenizing Real World 
 
 This platform enables users to purchase Real World Asset (RWA) tokens using fiat payments (AED/USD). Tokens are issued as **ERC-3643 compliant security tokens** with identity-based KYC/AML verification, on-chain asset management, and comprehensive compliance enforcement.
 
-**Deployment Target**: Optimized for **Hyperledger Besu** private chains, providing enterprise-grade blockchain infrastructure with permissioning, privacy options, and fast finality. Also compatible with public Ethereum networks.
+**Deployment Target**: Optimized for **Fjord chain**, providing enterprise-grade blockchain infrastructure with permissioning, privacy options, and fast finality. Also compatible with public Ethereum networks.
 
 ### Key Features
 
@@ -239,24 +239,22 @@ npx hardhat test test/ERC3643Token.test.js
 
 ### Deployment
 
-#### Hyperledger Besu (Recommended)
+#### Fjord Chain 
 
 ```bash
-# Configure Besu connection in .env
+# Configure Fjord chain connection in .env
 cp .env.example .env
-# Edit .env with your Besu node details
+# Edit .env with your Fjord chain node details
 
-# Deploy to local Besu node
-npx hardhat run scripts/deploy.js --network besuLocal
+# Deploy to local Fjord chain node
+npx hardhat run scripts/deploy.js --network fjordLocal
 
-# Deploy to private Besu network (IBFT 2.0 / QBFT)
-npx hardhat run scripts/deploy.js --network besuPrivate
+# Deploy to private Fjord chain network (IBFT 2.0 / QBFT)
+npx hardhat run scripts/deploy.js --network fjordPrivate
 
-# Deploy to production Besu
-npx hardhat run scripts/deploy.js --network besuProduction
+# Deploy to production Fjord chain
+npx hardhat run scripts/deploy.js --network fjordProduction
 ```
-
-📖 **Complete Besu Guide**: See [BESU_DEPLOYMENT_GUIDE.md](BESU_DEPLOYMENT_GUIDE.md) for detailed Hyperledger Besu deployment instructions.
 
 #### Public Ethereum Networks
 
@@ -585,13 +583,8 @@ Future enhancements for regulated secondary trading:
 ## 📚 Documentation & Resources
 
 ### Project Documentation
-
-- **[REQUIREMENTS_VERIFICATION.md](REQUIREMENTS_VERIFICATION.md)** - Complete requirements analysis with code references
-- **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Detailed implementation guide
-- **[BESU_DEPLOYMENT_GUIDE.md](BESU_DEPLOYMENT_GUIDE.md)** - 🚀 Hyperledger Besu deployment guide
-- **[BESU_COMPATIBILITY.md](BESU_COMPATIBILITY.md)** - Besu compatibility verification report
-- **[CONTRACT_FILES.md](CONTRACT_FILES.md)** - File structure and contract overview
-- **[CLEANUP_SUMMARY.md](CLEANUP_SUMMARY.md)** - Project cleanup details
+ 
+- **`README.md`** - Overview, usage, and development notes for this Fjord smart contract project.
 
 ### External Resources
 
@@ -606,10 +599,10 @@ Future enhancements for regulated secondary trading:
 ## 📦 Project Files
 
 ```
-fjord-rwa-phase1/
+fjord-smart-contract/
 ├── contracts/                      # Smart contracts (6 files)
-│   ├── ERC3643Token.sol           # Main security token
-│   ├── IdentityRegistry.sol       # KYC/AML verification
+│   ├── ERC3643Token.sol            # Main security token
+│   ├── IdentityRegistry.sol        # KYC/AML verification
 │   ├── Compliance.sol              # Transfer rules
 │   ├── ICompliance.sol             # Compliance interface
 │   ├── IIdentity.sol               # Identity interface
@@ -617,14 +610,13 @@ fjord-rwa-phase1/
 ├── scripts/
 │   └── deploy.js                   # Deployment script
 ├── test/
-│   └── ERC3643Token.test.js       # Comprehensive test suite
+│   └── ERC3643Token.test.js        # Test suite
+├── cache/
+│   └── solidity-files-cache.json   # Hardhat Solidity cache
 ├── README.md                       # This file
-├── REQUIREMENTS_VERIFICATION.md    # Requirements analysis
-├── IMPLEMENTATION_SUMMARY.md       # Implementation guide
-├── CONTRACT_FILES.md               # File overview
-├── CLEANUP_SUMMARY.md              # Cleanup details
 ├── hardhat.config.js               # Hardhat configuration
-└── package.json                    # Dependencies
+├── package.json                    # Dependencies
+└── package-lock.json               # Locked dependency tree
 ```
 
 ---
@@ -680,14 +672,13 @@ fjord-rwa-phase1/
 
 ## 📊 Key Statistics
 
-- **Smart Contracts**: 6 files (1,006 lines of Solidity)
-- **Tests**: Comprehensive suite covering all functionality
-- **Documentation**: 6 detailed markdown files
-- **Compilation**: ✅ Zero errors, optimizer enabled (London EVM)
-- **Requirements**: ✅ 100% coverage verified
+- **Smart Contracts**: 6 Solidity files in `contracts/`
+- **Tests**: Automated tests in `test/ERC3643Token.test.js`
+- **Documentation**: Core README in `README.md`
+- **Compilation**: ✅ Hardhat + Solidity 0.8.20 (London EVM, optimizer enabled)
 - **Standard**: ERC-3643 T-REX protocol compliant
-- **Besu Compatible**: ✅ 100% verified and tested
-- **Target Platform**: Hyperledger Besu private chains
+- **Fjord Chain Compatible**: ✅ Designed for Fjord chain private networks
+- **Target Platform**: Fjord chain
 
 ---
 
@@ -708,5 +699,4 @@ This smart contract implementation is provided "as is" without warranty of any k
 **Status**: ✅ Requirements Met | ⚠️ Audit Required
 **Compliance**: ERC-3643 T-REX Protocol
 
-# Fjord-Smart-contract
-# Fjord-Smart-contract
+\
